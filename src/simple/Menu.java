@@ -132,6 +132,7 @@ public class Menu extends MouseAdapter {
 			g.drawString("Use the arrow keys to avoid the enemies", 170, 400);
 			g.drawString("Press the P key to pause", 170, 460);
 			g.drawString("Press the S key to buy upgrades", 170, 520);
+			g.drawString("Press Space to shoot", 170, 580);
 			
 			
 			g.setFont(font2);

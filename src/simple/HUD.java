@@ -24,6 +24,8 @@ public class HUD {
 	}
 	
 	public void render(Graphics g) {
+		
+		// Health bar
 		g.setColor(Color.gray);
 		g.fillRect(15, 15, 200 + bounds, 32);
 		g.setColor(new Color(75, greenValue, 0));

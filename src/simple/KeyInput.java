@@ -30,12 +30,16 @@ public class KeyInput extends KeyAdapter{
 			GameObject tempObject = handler.object.get(i);
 			
 			if(tempObject.getid() == ID.Player) {
-				//Key Events for player 1
+				//Key Events for player 
 				
 				if (key == KeyEvent.VK_UP) {tempObject.setVolY(-handler.getSpeed()); keyDown[0] = true;}
 				if (key == KeyEvent.VK_DOWN) {tempObject.setVolY(handler.getSpeed()); keyDown[1] = true;}
 				if (key == KeyEvent.VK_RIGHT) {tempObject.setVolX(handler.getSpeed()); keyDown[2] = true;}
 				if (key == KeyEvent.VK_LEFT) {tempObject.setVolX(-handler.getSpeed()); keyDown[3] = true;}
+				
+				if(key == KeyEvent.VK_SPACE) {
+					handler.addObject(new PlayerBullet(tempObject.getX() + 32, tempObject.getY(), ID.PlayerBullet, handler));
+				}
 			}
 		}
 		if(key == KeyEvent.VK_ESCAPE) System.exit(1);

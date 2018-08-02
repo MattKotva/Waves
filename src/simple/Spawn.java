@@ -39,19 +39,18 @@ public class Spawn {
 
 			if(hud.getLevel() == 3 && scoreKeep == 0) {
 				handler.clearEnemies();
-				handler.addObject(new Boss1(Game.WIDTH/2 - 48, -120, ID.Boss1, handler));
+				handler.addObject(new Boss1(Game.WIDTH/2 - 48, -120, ID.Boss1, game, handler));
 				bossFight = true;
 			}
-			if(hud.getLevel() == 5 && scoreKeep == 0) {
-				handler.clearEnemies();
-				bossFight = false;
+			if(hud.getLevel() >= 3 && !bossFight && scoreKeep == 0) {
+				//handler.clearEnemies();
 				handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.SmartEnemy, handler));
 			}
 
-			if(hud.getLevel() == 8 && scoreKeep == 0) {
+			if(hud.getLevel() == 10 && scoreKeep == 0) {
 				handler.clearEnemies();
 				bossFight = false;
-				for(int i = 0; i < 7; i++) {
+				for(int i = 0; i < 5; i++) {
 					handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.SmartEnemy, handler));
 				}
 			}
@@ -69,7 +68,7 @@ public class Spawn {
 
 			if(hud.getLevel() == 3 && scoreKeep == 0) {
 				handler.clearEnemies();
-				handler.addObject(new Boss1(Game.WIDTH/2 - 48, -120, ID.Boss1, handler));
+				handler.addObject(new Boss1(Game.WIDTH/2 - 48, -120, ID.Boss1, game, handler));
 				bossFight = true;
 			}
 			if(hud.getLevel() == 5 && scoreKeep == 0) {
@@ -85,7 +84,17 @@ public class Spawn {
 					handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.SmartEnemy, handler));
 				}
 			}
-		}
-			
+		}	
 	}
+	
+	
+	public boolean getBossFight() {
+		return bossFight;
+	}
+	
+	public void setBossFight(boolean b) {
+		this.bossFight = b;
+	}
+	
+	
 }

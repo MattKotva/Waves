@@ -17,6 +17,19 @@ public class BasicEnemy extends GameObject {
 		volX = 5;
 		volY = 5;
 	}
+	
+	private void collision() {
+		for (int i = 0; i < handler.object.size(); i++) {
+			GameObject tempObject = handler.object.get(i);
+			if(tempObject.getid() == ID.PlayerBullet) {
+				//collision
+				if(getBounds().intersects(tempObject.getBounds())) {
+					//collision code
+					handler.removeObject(this);
+				}
+			}
+		}
+	}
 
 	public void tick() {
 		x += volX;
@@ -30,6 +43,8 @@ public class BasicEnemy extends GameObject {
 		}
 		
 		handler.addObject(new Trail(x,y, ID.Trail, Color.red, 16, 16, .01f, handler));
+		
+		collision();
 		
 	}
 

@@ -24,12 +24,6 @@ public class Boss1Bullet extends GameObject {
 		x += volX;
 		y += volY;
 		
-//		if(y <= 0 || y >= Game.HEIGHT) {
-//			volY *= -1;
-//		}
-//		if(x <= 0 || x >= Game.WIDTH) {
-//			volX *= -1;
-//		}
 		
 		if(y >= Game.HEIGHT) {
 			handler.removeObject(this);

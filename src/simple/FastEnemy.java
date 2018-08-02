@@ -11,6 +11,19 @@ public class FastEnemy extends BasicEnemy {
 		volY = 10;
 	}
 	
+	private void collision() {
+		for (int i = 0; i < handler.object.size(); i++) {
+			GameObject tempObject = handler.object.get(i);
+			if(tempObject.getid() == ID.PlayerBullet) {
+				//collision
+				if(getBounds().intersects(tempObject.getBounds())) {
+					//collision code
+					handler.removeObject(this);
+				}
+			}
+		}
+	}
+	
 	@Override
 	public void tick() {
 		x += volX;
@@ -24,6 +37,8 @@ public class FastEnemy extends BasicEnemy {
 		}
 		
 		handler.addObject(new Trail(x,y, ID.Trail, Color.blue, 16, 16, .01f, handler));
+		
+		collision();
 		
 	}
 	
