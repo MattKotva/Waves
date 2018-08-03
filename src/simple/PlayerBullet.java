@@ -13,24 +13,24 @@ public class PlayerBullet extends GameObject {
 		this.handler = handler;
 		
 		volX = 0;
-		volY = -3;
+		volY = -5;
 		
 	}
 	
-	private void collision() {
-		for (int i = 0; i < handler.object.size(); i++) {
-			GameObject tempObject = handler.object.get(i);
-			if(tempObject.getid() == ID.BasicEnemy || tempObject.getid() == ID.FastEnemy || 
-					tempObject.getid() == ID.SmartEnemy || tempObject.getid() == ID.Boss1Bullet ||
-					tempObject.getid() == ID.Boss1) {
-				//collision
-				if(getBounds().intersects(tempObject.getBounds())) {
-					//collision code
-					handler.removeObject(this);
-				}
-			}
-		}
-	}
+//	private void collision() {
+//		for (int i = 0; i < handler.object.size(); i++) {
+//			GameObject tempObject = handler.object.get(i);
+//			if(tempObject.getid() == ID.BasicEnemy || tempObject.getid() == ID.FastEnemy || 
+//					tempObject.getid() == ID.SmartEnemy || tempObject.getid() == ID.Boss1Bullet ||
+//					tempObject.getid() == ID.Boss1) {
+//				//collision
+//				if(getBounds().intersects(tempObject.getBounds())) {
+//					//collision code
+//					handler.removeObject(this);
+//				}
+//			}
+//		}
+//	}
 
 	public void tick() {
 		
@@ -43,7 +43,7 @@ public class PlayerBullet extends GameObject {
 		
 		handler.addObject(new Trail(x,y, ID.Trail, Color.WHITE, 10, 10, 1f, handler));
 		
-		collision();
+		//collision();
 		
 	}
 

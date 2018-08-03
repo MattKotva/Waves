@@ -14,7 +14,7 @@ public class Boss1 extends GameObject {
 	private int timer = 90;
 	private int timer2 = 80;
 	
-	private float health = 10;
+	private float health = 1000;
 	private int greenValue;
 	private Game game;
 
@@ -66,8 +66,8 @@ public class Boss1 extends GameObject {
 			volX *= -1;
 		}
 		
-		health = Game.clamp(health, 0, 100);
-		greenValue = (int)health * 10;
+		health = Game.clamp(health, 0, 1000);
+		greenValue = (int)health/5;
 		greenValue = (int)Game.clamp(greenValue, 0, 255);
 		
 		collision();	
@@ -90,7 +90,7 @@ public class Boss1 extends GameObject {
 		g.setColor(Color.gray);
 		g.fillRect((int)x -2,(int) y - 30, 100, 20);
 		g.setColor(new Color(75, greenValue, 0));
-		g.fillRect((int)x -2,(int) y - 30, (int)health * 10, 20);
+		g.fillRect((int)x -2,(int) y - 30, (int)health/10, 20);
 		g.setColor(Color.white);
 		g.drawRect((int)x - 2,(int) y - 30, 100, 20);
 		

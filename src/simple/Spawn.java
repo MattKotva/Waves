@@ -54,6 +54,13 @@ public class Spawn {
 					handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.SmartEnemy, handler));
 				}
 			}
+			
+			if(hud.getLevel() == 15 && scoreKeep == 0) {
+				handler.clearEnemies();
+				handler.addObject(new Boss1(Game.WIDTH/4 - 48, -120, ID.Boss1, game, handler));
+				handler.addObject(new Boss1(Game.WIDTH * 3 /4 - 48, -120, ID.Boss1, game, handler));
+				bossFight = true;
+			}
 
 			
 		} else if(game.diff == 1) { // Spawn hard
